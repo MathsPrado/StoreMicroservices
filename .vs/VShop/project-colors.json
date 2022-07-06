@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0d3a1e46-a94f-4cb8-bf1f-109494ab8371": {
+      "ProjectGuid": "0d3a1e46-a94f-4cb8-bf1f-109494ab8371",
+      "DisplayName": "VShop.ProductApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
