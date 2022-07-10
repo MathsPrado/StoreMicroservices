@@ -4,10 +4,10 @@ namespace Vshop.Web.Services.Interface;
 
 public interface IProductService
 {
-    Task<IEnumerable<ProductViewmodel>> GetAllProducts();
-    Task<ProductViewmodel> FindProductById(int id);
-    Task<ProductViewmodel> CreateProduct (ProductViewmodel productVM);
-    Task<ProductViewmodel> UpdateProduct (ProductViewmodel productVM);
+    Task<IEnumerable<ProductViewModel>> GetAllProducts();
+    Task<ProductViewModel> FindProductById(int id);
+    Task<ProductViewModel> CreateProduct (ProductViewModel productVM);
+    Task<ProductViewModel> UpdateProduct (ProductViewModel productVM);
     Task<bool> DeleteProduct (int id);
 }
 

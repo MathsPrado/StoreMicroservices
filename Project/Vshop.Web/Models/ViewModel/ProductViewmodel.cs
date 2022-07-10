@@ -1,5 +1,5 @@
 ﻿namespace Vshop.Web.Models.ViewModel;
-public class ProductViewmodel
+public class ProductViewModel
 {
     public int Id { get; set; }
     public string? Name { get; set; }
