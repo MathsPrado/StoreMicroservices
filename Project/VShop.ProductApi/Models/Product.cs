@@ -10,7 +10,6 @@ public class Product
     public long Stock { get; set; }
     public string? ImageUrl { get; set; }
 
-    [JsonIgnore]
     public Category? Category { get; set; }
     public int CategoryId { get; set; }
 
