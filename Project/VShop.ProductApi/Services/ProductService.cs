@@ -42,9 +42,10 @@ namespace VShop.ProductApi.Services
             await _productRepository.Update(productEntity);
         }
 
-        public Task DeleteProduct(int id)
+        public async Task DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            var productEntity = await _productRepository.FindById(id);
+            await _productRepository.Delete(productEntity.Id);
         }
     }
 }
