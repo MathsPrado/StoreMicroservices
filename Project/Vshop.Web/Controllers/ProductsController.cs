@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Vshop.Web.Models.ViewModel;
+using Vshop.Web.Roles;
 using Vshop.Web.Services.Interface;
 
 namespace Vshop.Web.Controllers
@@ -28,6 +30,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> CreateProduct()
         {
             //ViewBag is an object Dynamic with property created in controller with have access in View
@@ -38,6 +41,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateProduct(ProductViewModel productVM)
         {
             if (ModelState.IsValid)
@@ -56,6 +60,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> UpdateProduct(int id)
         {
             ViewBag.CategoryId = new SelectList(await
@@ -70,6 +75,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> UpdateProduct(ProductViewModel productVM)
         {
             if (ModelState.IsValid)
@@ -83,6 +89,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = Role.Admin)]
         public async Task<ActionResult<ProductViewModel>> DeleteProduct(int id)
         {
             var result = await _productService.FindProductById(id);
@@ -94,6 +101,7 @@ namespace Vshop.Web.Controllers
         }
 
         [HttpPost(), ActionName("DeleteProduct")]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var result = await _productService.DeleteProduct(id);
